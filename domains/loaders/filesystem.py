@@ -17,4 +17,4 @@ class Loader(DomainLoaderMixin, BaseLoader):
     don't lie inside one of the template dirs are excluded from the result
     set, for security reasons.
     """
-    default_template_dirs = settings.TEMPLATE_DIRS
+    default_template_dirs = [dir for template_setting in settings.TEMPLATES for dir in template_setting['DIRS']]
